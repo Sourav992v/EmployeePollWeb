@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login should render correctly and match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="login-container"
+  >
+    <form>
+      <div
+        class="login-header"
+      >
+        <h1>
+          Employee Polls
+        </h1>
+        <img
+          alt="Employee avatars"
+          class="login-avatar"
+          src="test-file-stub"
+        />
+        <h2>
+          Log In
+        </h2>
+      </div>
+      <label
+        for="username"
+      >
+        User
+      </label>
+      <select
+        id="username"
+      >
+        <option
+          disabled=""
+          value=""
+        >
+          Select User
+        </option>
+      </select>
+      <label
+        for="password"
+      >
+        Password
+      </label>
+      <input
+        id="password"
+        placeholder="Enter your password"
+        type="password"
+        value=""
+      />
+      <button
+        type="submit"
+      >
+        Login
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;

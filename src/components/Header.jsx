@@ -20,19 +20,13 @@ const Header = () => {
   return (
     <header className="header">
       <nav>
-        <NavLink to="/" exact activeClassName="active">
+        <NavLink to="/" end className={({ isActive }) => (isActive ? "active" : "")}>
           Home
         </NavLink>
-        <NavLink
-          to="/leaderboard"
-          activeClassName="active"
-        >
+        <NavLink to="/leaderboard" className={({ isActive }) => (isActive ? "active" : "")}>
           Leaderboard
         </NavLink>
-        <NavLink
-          to="/add"
-          activeClassName="active"
-        >
+        <NavLink to="/add" className={({ isActive }) => (isActive ? "active" : "")}>
           New
         </NavLink>
       </nav>

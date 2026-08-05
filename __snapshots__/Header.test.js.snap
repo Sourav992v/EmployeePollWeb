@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render correctly when an authenticated user is present 1`] = `
+<DocumentFragment>
+  <header
+    class="header"
+  >
+    <nav>
+      <a
+        aria-current="page"
+        class="active"
+        data-discover="true"
+        href="/"
+      >
+        Home
+      </a>
+      <a
+        class=""
+        data-discover="true"
+        href="/leaderboard"
+      >
+        Leaderboard
+      </a>
+      <a
+        class=""
+        data-discover="true"
+        href="/add"
+      >
+        New
+      </a>
+    </nav>
+    <div
+      class="user-info"
+    >
+      <img
+        alt="Avatar of Sarah Edo"
+        class="avatar-small"
+        src="https://api.dicebear.com/7.x/initials/svg?seed=Sarah%20Edo"
+      />
+      <span>
+        Sarah Edo
+      </span>
+      <button>
+        Logout
+      </button>
+    </div>
+  </header>
+</DocumentFragment>
+`;
+
+exports[`Header should render correctly when no authenticated user is present 1`] = `
+<DocumentFragment>
+  <header
+    class="header"
+  >
+    <nav>
+      <a
+        aria-current="page"
+        class="active"
+        data-discover="true"
+        href="/"
+      >
+        Home
+      </a>
+      <a
+        class=""
+        data-discover="true"
+        href="/leaderboard"
+      >
+        Leaderboard
+      </a>
+      <a
+        class=""
+        data-discover="true"
+        href="/add"
+      >
+        New
+      </a>
+    </nav>
+  </header>
+</DocumentFragment>
+`;
