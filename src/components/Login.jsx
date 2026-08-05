@@ -1,0 +1,58 @@
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUsers } from "../action/users";
+import "./Login.css";
+import loginImage from "../../dist/assets/employee_login.png"; // Import the image
+import { setAuthedUser } from "../action/authedUser";
+
+const Login = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const users = useSelector((state) => state.users);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const user = Object.values(users).find(
+      (user) => user.id === username && user.password === password
+    );
+    if (user) {
+      dispatch(setAuthedUser(user.id));
+      navigate("/");
+    } else {
+      alert("Invalid credentials");
+    }
+  };
+
+  return (
+    <div className="login-container">
+      <form onSubmit={handleLogin}>
+        <div className="login-header">
+          <h1>Employee Polls</h1>
+          <img
+            src={loginImage}
+            alt="Employee avatars"
+            className="login-avatar"
+          />
+          <h2>Log In</h2>
+        </div>
+        <label htmlFor="username">User</label>
+        <select id="username" value={username} onChange={(e) => setUsername(e.target.value)}>
+          <option value="" disabled>Select User</option>
+          {Object.values(users).map((user) => (<option key={user.id} value={user.id}>{user.name}</option>))}
+        </select>
+        <label htmlFor="password">Password</label>
+        <input id="password" type="password" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  );
+};
+
+export default Login;

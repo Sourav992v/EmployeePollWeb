@@ -1,0 +1,110 @@
+.poll-page {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fcfcfc;
+}
+
+.poll-page h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.poll-page .avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 5px solid #eaf2f8; /* Light blue circle around avatar */
+}
+
+.poll-page h3 {
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 30px;
+  font-weight: normal;
+}
+
+.options {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.option {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 20px 15px 0; /* No padding at the bottom */
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  transition: transform 0.2s ease;
+  overflow: hidden; /* To contain the child background */
+}
+
+.option:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.option .click-text {
+  display: block;
+  background-color: #58c9b9; /* Teal color from image */
+  color: white;
+  padding: 10px 0;
+  margin: 20px -15px 0; /* Span full width */
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Styles for voted state */
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.option-result {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  background-color: #f9f9f9;
+}
+
+.option-result.voted {
+  background-color: #e8f5e9; /* Light green for the voted option */
+  border-color: #a5d6a7;
+  font-weight: bold;
+}
+
+.progress-bar {
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  height: 20px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.progress-bar div {
+  background-color: #4caf50;
+  height: 100%;
+  text-align: center;
+  color: white;
+  line-height: 20px;
+}
+
+.vote-count {
+  font-size: 14px;
+  color: #666;
+}

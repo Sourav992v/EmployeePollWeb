@@ -1,0 +1,74 @@
+.leaderboard-container {
+  max-width: 800px;
+  margin: 40px auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fcfcfc;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.leaderboard-container table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.leaderboard-container th,
+.leaderboard-container td {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.leaderboard-container th {
+  font-weight: bold;
+  color: #555;
+  text-align: center;
+  border-bottom-width: 2px;
+}
+
+.leaderboard-container tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.leaderboard-container tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.user-cell {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  gap: 20px;
+}
+
+.leaderboard-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+.user-id {
+  font-size: 14px;
+  color: #888;
+}
+
+/* Center the text for the last two columns */
+.leaderboard-container td:nth-child(2),
+.leaderboard-container td:nth-child(3),
+.leaderboard-container th:nth-child(2),
+.leaderboard-container th:nth-child(3) {
+  text-align: center;
+}

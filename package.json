@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite build && vite preview --port 3001 --host",
+    "start": "vite build && vite preview --port 3001",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -14,6 +14,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",
+    "react-router-dom": "^7.18.2",
     "redux": "^5.0.1",
     "redux-thunk": "^3.1.0"
   },
