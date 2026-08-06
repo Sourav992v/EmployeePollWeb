@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from "../action/users";
 import "./Login.css";
@@ -8,14 +8,24 @@ import { setAuthedUser } from "../action/authedUser";
 
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users);
+  const authedUser = useSelector((state) => state.authedUser);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (authedUser) {
+      navigate(from, { replace: true });
+    }
+  }, [authedUser, from, navigate]);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -24,7 +34,7 @@ const Login = () => {
     );
     if (user) {
       dispatch(setAuthedUser(user.id));
-      navigate("/");
+      navigate(from, { replace: true });
     } else {
       alert("Invalid credentials");
     }
