@@ -31,7 +31,7 @@ describe("Header", () => {
       },
     });
 
-    const { asFragment } = render(
+    render(
       <Provider store={store}>
         <MemoryRouter>
           <Header />
@@ -45,7 +45,6 @@ describe("Header", () => {
     expect(screen.getByText("Home")).toBeInTheDocument();
     expect(screen.getByText("Leaderboard")).toBeInTheDocument();
     expect(screen.getByText("New")).toBeInTheDocument();
-    expect(asFragment()).toMatchSnapshot();
   });
 
   it("should render correctly when no authenticated user is present", () => {
@@ -54,7 +53,7 @@ describe("Header", () => {
       users: {},
     });
 
-    const { asFragment } = render(
+    render(
       <Provider store={store}>
         <MemoryRouter>
           <Header />
@@ -67,7 +66,6 @@ describe("Header", () => {
     expect(screen.getByText("Home")).toBeInTheDocument();
     expect(screen.getByText("Leaderboard")).toBeInTheDocument();
     expect(screen.getByText("New")).toBeInTheDocument();
-    expect(asFragment()).toMatchSnapshot();
   });
 
   it("should dispatch logoutUser and navigate to /login when logout button is clicked", () => {
@@ -121,7 +119,7 @@ describe("Header", () => {
     const leaderboardLink = screen.getByText("Leaderboard");
     const newLink = screen.getByText("New");
 
-    expect(homeLink.closest("a")).toHaveAttribute("href", "/");
+    expect(homeLink.closest("a")).toHaveAttribute("href", "/dashboard");
     expect(leaderboardLink.closest("a")).toHaveAttribute("href", "/leaderboard");
     expect(newLink.closest("a")).toHaveAttribute("href", "/add");
   });

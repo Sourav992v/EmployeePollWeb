@@ -102,13 +102,13 @@ describe("PollPage", () => {
         <MemoryRouter initialEntries={["/questions/nonexistent"]}>
           <Routes>
             <Route path="/questions/:id" element={<PollPage />} />
-            <Route path="/404" element={<div>404 Page</div>} />
+            <Route path="/404" element={<div>404 - Page Not Found</div>} />
           </Routes>
         </MemoryRouter>
       </Provider>
     );
 
-    expect(screen.getByText("404 Page")).toBeInTheDocument();
+    expect(screen.getByText("404 - Page Not Found")).toBeInTheDocument();
   });
 
   it("should redirect unauthenticated users to login before showing 404 for a non-existent poll", () => {

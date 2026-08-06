@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, within } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
 import configureStore from "redux-mock-store";
@@ -54,7 +54,7 @@ const mockState = {
 };
 
 describe("Dashboard", () => {
-  it("should render new and done questions correctly", () => {
+  it("should render unanswered and answered polls in tabs", () => {
     const store = mockStore(mockState);
     render(
       <Provider store={store}>
@@ -64,13 +64,16 @@ describe("Dashboard", () => {
       </Provider>
     );
 
-    const newQuestionsSection = screen.getByText("New Questions").closest(".questions-section");
-    expect(newQuestionsSection).toHaveTextContent("Mike Tsamis");
-    expect(newQuestionsSection).not.toHaveTextContent("Sarah Edo");
+    expect(screen.getByText("Unanswered Questions")).toBeInTheDocument();
+    expect(screen.getByText("Answered Polls")).toBeInTheDocument();
+    const unansweredSection = screen.getByText("Unanswered Questions").closest(".questions-section");
+    expect(within(unansweredSection).getByText("Mike Tsamis")).toBeInTheDocument();
+    expect(within(unansweredSection).queryByText("Sarah Edo")).not.toBeInTheDocument();
 
-    const doneQuestionsSection = screen.getByText("Done").closest(".questions-section");
-    expect(doneQuestionsSection).toHaveTextContent("Sarah Edo");
-    expect(doneQuestionsSection).not.toHaveTextContent("Mike Tsamis");
+    fireEvent.click(screen.getByText("Answered Polls"));
+    const answeredSection = screen.getByText("Answered Questions").closest(".questions-section");
+    expect(within(answeredSection).getByText("Sarah Edo")).toBeInTheDocument();
+    expect(within(answeredSection).queryByText("Mike Tsamis")).not.toBeInTheDocument();
   });
 
   it("should navigate to the poll page when 'Show' is clicked", () => {
