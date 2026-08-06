@@ -1,10 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams, Navigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Header from "./Header";
 import "./PollPage.css";
 import { saveQuestionAnswer } from "../action/questions";
 import PollOption from "./PollOption";
+import NotFound from "./NotFound";
 
 const PollPage = () => {
   const { id } = useParams();
@@ -22,7 +23,7 @@ const PollPage = () => {
   };
 
   if (!question || !author) {
-    return <Navigate to="/404" />;
+    return <NotFound />;
   }
 
   const optionOneVotes = question.optionOne.votes.length;

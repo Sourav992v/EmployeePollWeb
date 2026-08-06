@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 import configureStore from "redux-mock-store";
 import PollPage from "../EmployeePollWeb/src/components/PollPage";
+import ProtectedRoute from "../EmployeePollWeb/src/components/ProtectedRoute";
 
 const rawThunk = require("redux-thunk");
 const thunk = rawThunk.default ?? rawThunk.thunk ?? rawThunk;
@@ -108,5 +109,29 @@ describe("PollPage", () => {
     );
 
     expect(screen.getByText("404 Page")).toBeInTheDocument();
+  });
+
+  it("should redirect unauthenticated users to login before showing 404 for a non-existent poll", () => {
+    const store = mockStore({ ...mockState, authedUser: null });
+    render(
+      <Provider store={store}>
+        <MemoryRouter initialEntries={["/questions/nonexistent"]}>
+          <Routes>
+            <Route path="/login" element={<div>Login Page</div>} />
+            <Route
+              path="/questions/:id"
+              element={
+                <ProtectedRoute>
+                  <PollPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="/404" element={<div>404 Page</div>} />
+          </Routes>
+        </MemoryRouter>
+      </Provider>
+    );
+
+    expect(screen.getByText("Login Page")).toBeInTheDocument();
   });
 });
