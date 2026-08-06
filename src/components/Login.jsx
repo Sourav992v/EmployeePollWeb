@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from "../action/users";
 import "./Login.css";
-import loginImage from "../../dist/assets/employee_login.png"; // Import the image
+import loginImage from "../assets/employee_login.png"; // Import the image
 import { setAuthedUser } from "../action/authedUser";
 
 const Login = () => {
