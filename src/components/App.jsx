@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Login from "./Login";
@@ -20,12 +20,32 @@ function App() {
     dispatch(fetchQuestions());
   }, [dispatch, location]);
 
+  useEffect(() => {
+    const { pathname } = location;
+    let title = "Employee Polls";
+
+    if (pathname === "/login") {
+      title = "Employee Polls - Login";
+    } else if (pathname === "/dashboard") {
+      title = "Employee Polls - Home";
+    } else if (pathname === "/leaderboard") {
+      title = "Employee Polls - Leaderboard";
+    } else if (pathname === "/add") {
+      title = "Employee Polls - New Poll";
+    } else if (pathname.startsWith("/questions/")) {
+      title = "Employee Polls - Poll";
+    }
+
+    document.title = title;
+  }, [location]);
+
   return (
     <div className="app">
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Navigate to="/dashboard" replace />} />
         <Route
-          path="/"
+          path="/dashboard"
           element={
             <ProtectedRoute>
               <Dashboard />

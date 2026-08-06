@@ -20,7 +20,7 @@ const Header = () => {
   return (
     <header className="header">
       <nav>
-        <NavLink to="/" end className={({ isActive }) => (isActive ? "active" : "")}>
+        <NavLink to="/dashboard" end className={({ isActive }) => (isActive ? "active" : "")}> 
           Home
         </NavLink>
         <NavLink to="/leaderboard" className={({ isActive }) => (isActive ? "active" : "")}>
