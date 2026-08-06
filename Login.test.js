@@ -3,8 +3,8 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 import configureStore from "redux-mock-store";
-import Login from "../EmployeePollWeb/src/components/Login";
-import { setAuthedUser } from "../EmployeePollWeb/src/action/authedUser";
+import Login from "./src/components/Login";
+import { setAuthedUser } from "./src/action/authedUser";
 
 const rawThunk = require("redux-thunk");
 const thunk = rawThunk.default ?? rawThunk.thunk ?? rawThunk;

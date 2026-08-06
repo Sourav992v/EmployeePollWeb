@@ -3,8 +3,8 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 import configureStore from "redux-mock-store";
-import PollPage from "../EmployeePollWeb/src/components/PollPage";
-import ProtectedRoute from "../EmployeePollWeb/src/components/ProtectedRoute";
+import PollPage from "./src/components/PollPage";
+import ProtectedRoute from "./src/components/ProtectedRoute";
 
 const rawThunk = require("redux-thunk");
 const thunk = rawThunk.default ?? rawThunk.thunk ?? rawThunk;

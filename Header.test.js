@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
 import configureStore from "redux-mock-store";
-import Header from "../EmployeePollWeb/src/components/Header";
+import Header from "./src/components/Header";
 import { logoutUser } from "./src/action/authedUser";
 
 const rawThunk = require("redux-thunk");

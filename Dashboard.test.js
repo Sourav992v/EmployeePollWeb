@@ -3,7 +3,7 @@ import { render, screen, fireEvent, within } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
 import configureStore from "redux-mock-store";
-import Dashboard from "../EmployeePollWeb/src/components/Dashboard";
+import Dashboard from "./src/components/Dashboard";
 
 const rawThunk = require("redux-thunk");
 const thunk = rawThunk.default ?? rawThunk.thunk ?? rawThunk;

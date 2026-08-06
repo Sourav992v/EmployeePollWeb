@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
 import configureStore from "redux-mock-store";
-import NewPoll from "../EmployeePollWeb/src/components/NewPoll";
+import NewPoll from "./src/components/NewPoll";
 import { saveQuestion } from "./src/action/questions";
 
 const rawThunk = require("redux-thunk");
